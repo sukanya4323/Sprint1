@@ -1,6 +1,9 @@
 package com.example.OnlineAyurvedaMedicine.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import com.example.OnlineAyurvedaMedicine.entity.User;
 
@@ -18,6 +21,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	 * @return
 	 */
 	boolean existsByUserName(String userName);
+	public List<User> findByUserName(@Param("name") String userName);
 
 
 }

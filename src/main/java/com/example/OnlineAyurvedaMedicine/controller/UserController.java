@@ -39,7 +39,7 @@ public class UserController {
 	@PostMapping("/saveUser")
 	public ResponseEntity<User> saveUser(@RequestBody User user)throws UserAlreadyExistsException{
 	   User savedUser = userServ.saveUser(user);
-	   return new ResponseEntity<User>(savedUser, HttpStatus.CREATED);
+	   return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
 	}
 	
 	/**
@@ -49,7 +49,7 @@ public class UserController {
 	@GetMapping("/allUsers")
 	public ResponseEntity<List<User>> getAllUsers() {
 		List<User> user = userServ.getAllUsers();
-		return new ResponseEntity<List<User>>(user, HttpStatus.OK);
+		return new ResponseEntity<>(user, HttpStatus.OK);
 	}
 	
 	/**
