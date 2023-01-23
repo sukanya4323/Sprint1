@@ -11,13 +11,20 @@ import org.springframework.stereotype.Service;
 import com.example.OnlineAyurvedaMedicine.entity.User;
 import com.example.OnlineAyurvedaMedicine.exception.UserAlreadyExistsException;
 import com.example.OnlineAyurvedaMedicine.repository.UserRepository;
-
+/**
+ * 
+ * @author Murali Krishna
+ *
+ */
 @Service
 public class UserServiceImpl implements UserService{
 
 	@Autowired
 	private UserRepository userRepo;
-	
+	/**
+	 * 
+	 * @param userRepo
+	 */
 	public UserServiceImpl(UserRepository userRepo) {
 		this.userRepo = userRepo;
 		

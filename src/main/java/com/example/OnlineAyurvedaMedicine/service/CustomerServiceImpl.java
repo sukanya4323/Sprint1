@@ -10,17 +10,27 @@ import com.example.OnlineAyurvedaMedicine.entity.Customer;
 import com.example.OnlineAyurvedaMedicine.exception.CustomerAlreadyExistsException;
 import com.example.OnlineAyurvedaMedicine.repository.CustomerRepository;
 
-
+/**
+ * 
+ * @author Divya Jyothi
+ *
+ */
 @Service
 public class CustomerServiceImpl implements CustomerService{
+	
 	@Autowired
 	private CustomerRepository custRepo;
+	/**
+	 * 
+	 * @param customerRepo
+	 */
 	public CustomerServiceImpl(CustomerRepository customerRepo) {
 		this.custRepo = customerRepo;
 
 	}
+	
 	@Override
-	public Customer saveCustomer(Customer cust) throws CustomerAlreadyExistsException {
+		public Customer saveCustomer(Customer cust) throws CustomerAlreadyExistsException {
 		if(custRepo.existsByCustomerName(cust.getCustomerName()))
 			throw new CustomerAlreadyExistsException();
 		

@@ -17,6 +17,11 @@ import com.example.OnlineAyurvedaMedicine.entity.Customer;
 import com.example.OnlineAyurvedaMedicine.exception.CustomerAlreadyExistsException;
 import com.example.OnlineAyurvedaMedicine.service.CustomerService;
 
+/**
+ * 
+ * @author Divya Jyothi
+ *
+ */
 @RestController
 public class CustomerController {
 	@Autowired
@@ -27,24 +32,43 @@ public class CustomerController {
 		return new ResponseEntity<Customer>(savedCust, HttpStatus.CREATED);
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	@GetMapping("/allCustomers")
 	public ResponseEntity<List<Customer>> getAllCustomers() {
 		List<Customer> customers = custServ.getAllCustomers();
 		return new ResponseEntity<List<Customer>>(customers, HttpStatus.OK);
 	}
 	
+	/**
+	 * 
+	 * @param customerId
+	 * @return
+	 */
 	@GetMapping("/allCustomer/{id}")
 	public ResponseEntity<Optional<Customer>> getCustomerById(@PathVariable long customerId) {
 		Optional<Customer> cust = custServ.getCustomerByCustomerId(customerId);
 		return new ResponseEntity<>(cust, HttpStatus.OK);
 	}
 	
+	/**
+	 * 
+	 * @param customerId
+	 * @return
+	 */
 	@DeleteMapping("/deleteCustomer/{id}")
 	public ResponseEntity<String> deleteCustomerById(@PathVariable long customerId) {
 		String cust= custServ.deleteCustomerByCustomerId(customerId);
 		return new ResponseEntity<>(cust, HttpStatus.OK);
 	}
 	
+	/**
+	 * 
+	 * @param cust
+	 * @return
+	 */
 	@PutMapping("/updateCustomer")
 	public ResponseEntity<Customer> updateCustomer(@RequestBody Customer cust){
 		Customer upCust = custServ.updateCustomer(cust);

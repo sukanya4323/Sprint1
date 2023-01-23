@@ -8,11 +8,26 @@ import org.springframework.stereotype.Repository;
 
 import com.example.OnlineAyurvedaMedicine.entity.Medicine;
 
+/**
+ * 
+ * @author Tentu Sindhu
+ *
+ */
 @Repository
 public interface MedicineRepository extends JpaRepository<Medicine, Long> {
 
+	/**
+	 * 
+	 * @param medicineName
+	 * @return
+	 */
 	List<Medicine> findByMedicineName(String medicineName);
 
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
 	Optional<Medicine> findByMedicineId(long id);
 
 }

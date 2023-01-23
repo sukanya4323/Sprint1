@@ -13,6 +13,11 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
+/**
+ * 
+ * @author Sukanya
+ *
+ */
 @Entity
 @Data
 @Table(name="orders")
@@ -25,6 +30,7 @@ public class Order {
 	private LocalDate orderDate ;
 	@NotNull
 	private LocalDate dispatchDate;
+	private String orderAddress;
 	@NotNull
 	private double totalPrice;
 	public void setTotalPrice(int totalPrice) throws PriceException{

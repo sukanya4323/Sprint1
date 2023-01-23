@@ -5,19 +5,40 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+/**
+ * 
+ * @author Sukanya
+ *
+ */
 @ControllerAdvice
 public class GlobalExceptionHandler {
+	
+	/**
+	 * 
+	 * @param user1
+	 * @return
+	 */
 	@ExceptionHandler(value=PriceException.class)
 	public ResponseEntity<String> priceException(PriceException user1){
 		return new ResponseEntity<String>("Shipping charge of 70/- will be charged. Add more items to make a total of 500/-.", HttpStatus.CONFLICT);
 	}
 	
+	/**
+	 * 
+	 * @param user
+	 * @return
+	 */
 	@ExceptionHandler(value = CustomerAlreadyExistsException.class)
 	public ResponseEntity<String> customerAlreadyExistsException(CustomerAlreadyExistsException user){
 		return new ResponseEntity<String>("customer already exists in db. Please- try again", HttpStatus.CONFLICT);
 				
 	}
 	
+	/**
+	 * 
+	 * @param user
+	 * @return
+	 */
 	@ExceptionHandler(value = UserAlreadyExistsException.class)
 	public ResponseEntity<String> UserAlreadyExistsException (UserAlreadyExistsException user){
 		return new ResponseEntity<String>("User already exists in database. please try again", HttpStatus.CONFLICT);

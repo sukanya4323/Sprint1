@@ -9,13 +9,17 @@ import org.springframework.stereotype.Service;
 import com.example.OnlineAyurvedaMedicine.entity.Category;
 import com.example.OnlineAyurvedaMedicine.repository.CategoryRepository;
 
+/**
+ * 
+ * @author Devi
+ *
+ */
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
 	@Autowired
 	private CategoryRepository catRepo;
 	 
-
 	@Override
 	public Category saveCategoryEntity(Category cat) {
 

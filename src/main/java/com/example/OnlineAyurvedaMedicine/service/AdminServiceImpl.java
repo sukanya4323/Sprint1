@@ -8,6 +8,11 @@ import org.springframework.stereotype.Service;
 import com.example.OnlineAyurvedaMedicine.entity.Admin;
 import com.example.OnlineAyurvedaMedicine.repository.AdminRepository;
 
+/**
+ * 
+ * @author Anton Michael Shagay
+ *
+ */
 @Service
 public class AdminServiceImpl implements AdminService {
 

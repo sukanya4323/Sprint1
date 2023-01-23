@@ -19,24 +19,44 @@ import com.example.OnlineAyurvedaMedicine.entity.User;
 import com.example.OnlineAyurvedaMedicine.exception.UserAlreadyExistsException;
 import com.example.OnlineAyurvedaMedicine.service.UserService;
 
+/**
+ * 
+ * @author Murali Krishna
+ *
+ */
 @RestController
 public class UserController {
 	
 	@Autowired
 	private UserService userServ;
 	
+	/**
+	 * 
+	 * @param user
+	 * @return
+	 * @throws UserAlreadyExistsException
+	 */
 	@PostMapping("/saveUser")
 	public ResponseEntity<User> saveUser(@RequestBody User user)throws UserAlreadyExistsException{
 	   User savedUser = userServ.saveUser(user);
 	   return new ResponseEntity<User>(savedUser, HttpStatus.CREATED);
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	@GetMapping("/allUsers")
 	public ResponseEntity<List<User>> getAllUsers() {
 		List<User> user = userServ.getAllUsers();
 		return new ResponseEntity<List<User>>(user, HttpStatus.OK);
 	}
 	
+	/**
+	 * 
+	 * @param userId
+	 * @return
+	 */
 	@GetMapping("/getUser/{userId}")
 	public ResponseEntity<Optional<User>> getUserById(@PathVariable long userId) {
 		Optional<User> user = userServ.getUserById(userId);
@@ -44,13 +64,22 @@ public class UserController {
 	
 	}
 	
+	/**
+	 * 
+	 * @param user
+	 * @return
+	 */
 	@PutMapping("/updateUser")
 	public ResponseEntity<User> updateUser(@RequestBody User user){
 		User upUser = userServ.updateUser(user);
 		return new ResponseEntity<>(upUser, HttpStatus.OK);
 	}
 	
-
+	/**
+	 * 
+	 * @param userId
+	 * @return
+	 */
 	@DeleteMapping("/deleteId/{userId}")
 	public ResponseEntity <String> deleteById(@PathVariable long userId) {
 		String msg = userServ.deleteById(userId);

@@ -16,38 +16,75 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.OnlineAyurvedaMedicine.entity.Medicine;
 import com.example.OnlineAyurvedaMedicine.service.MedicineService;
 
+/**
+ * 
+ * @author Tentu Sindhu
+ *
+ */
 @RestController
 public class MedicineController {
 	@Autowired
 	private MedicineService medServ;
 	
+	/**
+	 * 
+	 * @param med
+	 * @return
+	 */
 	@PostMapping("/saveMedicine")
 	public ResponseEntity<Medicine>saveMedicine(@RequestBody Medicine med) {
 		Medicine savedMed=medServ.saveMedicine(med);
 		return new ResponseEntity<Medicine>(savedMed, HttpStatus.CREATED);
 	}
+	
+	/**
+	 * 
+	 * @return
+	 */
 	@GetMapping("/allMedicines")
 	public ResponseEntity<List<Medicine>> getAllMedicines() {
 		List<Medicine> medicines = medServ.getAllMedicines();
 		return new ResponseEntity<List<Medicine>>(medicines,HttpStatus.OK);
 	}
+	
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("/getMedicine/{id}")
 	public ResponseEntity<Optional<Medicine>> getMedicineById(@PathVariable int id){
 		Optional<Medicine> med=medServ.getMedicineById(id);
 		return new ResponseEntity<>(med, HttpStatus.OK);
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
 	@DeleteMapping("/delMedicine/{id}")
 	public ResponseEntity<String> deleteMedicineById(@PathVariable long id) {
 		String med = medServ.deleteMedicineById(id);
 		return new ResponseEntity<String>(med,HttpStatus.OK);
-		
-	}
+		}
+	
+	/**
+	 * 
+	 * @param med
+	 * @return
+	 */
 	@PutMapping("/updateMedicine/{id}")
 	public ResponseEntity<Medicine> updateMedicine(@RequestBody Medicine med) {
 		Medicine upMed = medServ.updateMedicineById(med);
 		return new ResponseEntity<>(upMed,HttpStatus.OK);
 	} 
+	
+	/**
+	 * 
+	 * @param medicineName
+	 * @return
+	 */
 	@GetMapping("/getMedicines/{medicineName}")
 	public List<Medicine>getMedicineByMedicineName(@PathVariable String medicineName){
 		List<Medicine> med=medServ.getMedicineByMedicineName(medicineName);

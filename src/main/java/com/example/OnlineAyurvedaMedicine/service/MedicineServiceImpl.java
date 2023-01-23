@@ -10,12 +10,20 @@ import com.example.OnlineAyurvedaMedicine.entity.Medicine;
 import com.example.OnlineAyurvedaMedicine.repository.MedicineRepository;
 import com.example.OnlineAyurvedaMedicine.repository.UserRepository;
 
+/**
+ * 
+ * @author Tentu Sindhu
+ *
+ */
 @Service
 public class MedicineServiceImpl implements MedicineService{
 
 	@Autowired
 	private MedicineRepository medRepo;
-	
+	/**
+	 * 
+	 * @param medicineRepo
+	 */
 	public MedicineServiceImpl(MedicineRepository medicineRepo){
 		this.medRepo = medicineRepo;
 	}

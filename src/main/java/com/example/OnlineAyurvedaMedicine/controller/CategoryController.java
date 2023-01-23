@@ -17,13 +17,22 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.OnlineAyurvedaMedicine.entity.Category;
 import com.example.OnlineAyurvedaMedicine.service.CategoryService;
  
-
+/**
+ * 
+ * @author Devi
+ *
+ */
 @RestController
 public class CategoryController {
 
 	@Autowired
 	private CategoryService catServ;
 
+	/**
+	 * 
+	 * @param cat
+	 * @return
+	 */
 	@PostMapping("/saveCategory")
 	public ResponseEntity<Category> saveCategory(@RequestBody Category cat) {
 		Category savedCat = catServ.saveCategoryEntity(cat);
@@ -31,6 +40,10 @@ public class CategoryController {
 
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	@GetMapping("/allCategory")
 	public ResponseEntity<List<Category>> getAllCategory() {
 		List<Category> categoryEntity = catServ.getAllCategoryEntity();
@@ -38,18 +51,33 @@ public class CategoryController {
 
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("/getCategory/{id}")
 	public ResponseEntity<Optional<Category>> getCategoryId(@PathVariable long id) {
 		Optional<Category> cat = catServ.getCategoryById(id);
 		return new ResponseEntity<>(cat, HttpStatus.OK);
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
 	@DeleteMapping("/deleteCategory/{id}")
 	public ResponseEntity<String> deleteCategoryById(@PathVariable long id) {
 		String cat = catServ.deleteCategoryById(id);
 		return new ResponseEntity<String>(cat, HttpStatus.OK);
 	}
 
+	/**
+	 * 
+	 * @param cat
+	 * @return
+	 */
 	@PutMapping("/updateCategory")
 	public ResponseEntity<Category> updateCategory(@RequestBody Category cat) {
 		Category upCat = catServ.updateCategory(cat);
