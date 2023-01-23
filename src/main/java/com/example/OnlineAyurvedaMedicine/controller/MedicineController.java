@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.OnlineAyurvedaMedicine.entity.Medicine;
-import com.example.OnlineAyurvedaMedicine.entity.Order;
 import com.example.OnlineAyurvedaMedicine.service.MedicineService;
 
 @RestController

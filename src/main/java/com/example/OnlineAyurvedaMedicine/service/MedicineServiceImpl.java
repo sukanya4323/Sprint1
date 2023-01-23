@@ -8,27 +8,29 @@ import org.springframework.stereotype.Service;
 
 import com.example.OnlineAyurvedaMedicine.entity.Medicine;
 import com.example.OnlineAyurvedaMedicine.repository.MedicineRepository;
+import com.example.OnlineAyurvedaMedicine.repository.UserRepository;
 
 @Service
 public class MedicineServiceImpl implements MedicineService{
 
 	@Autowired
 	private MedicineRepository medRepo;
+	
+	public MedicineServiceImpl(MedicineRepository medicineRepo){
+		this.medRepo = medicineRepo;
+	}
 
 	public Medicine saveMedicine(Medicine med) {
-		Medicine savedMed = medRepo.save(med);
-		return savedMed;
+		return medRepo.save(med);
 
 	}
 
 	public List<Medicine> getAllMedicines() {
-		List<Medicine> medicines = medRepo.findAll();
-		return medicines;
+		return medRepo.findAll();
 	}
 
 	public Optional<Medicine> getMedicineById(long id) {
-		Optional<Medicine> med = medRepo.findByMedicineId(id);
-		return med;
+		return medRepo.findByMedicineId(id);
 	}
 
 	public String deleteMedicineById(long id) {
@@ -41,12 +43,10 @@ public class MedicineServiceImpl implements MedicineService{
 	}
 
 	public Medicine updateMedicineById(Medicine med) {
-		Medicine upMed = medRepo.save(med);
-		return upMed;
+		return medRepo.save(med);
 	}
 	public List<Medicine> getMedicineByMedicineName(String medicineName) {
-		List<Medicine> med = medRepo.findByMedicineName(medicineName);
-		return med;
+		return medRepo.findByMedicineName(medicineName);
 	}
 
 }

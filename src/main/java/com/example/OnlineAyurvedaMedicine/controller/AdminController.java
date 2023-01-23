@@ -17,7 +17,7 @@ public class AdminController {
 	
 	@PostMapping("/saveAdmin")
 	public String save_Admin(@RequestBody Admin ad) {
-	    Admin saveAd=adServ.saveAdmin(ad);
+	    Admin saveAd = adServ.saveAdmin(ad);
 		return "Admin saved successfully";
 
 	}

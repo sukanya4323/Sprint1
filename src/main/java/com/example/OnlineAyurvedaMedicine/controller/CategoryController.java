@@ -34,14 +34,14 @@ public class CategoryController {
 	@GetMapping("/allCategory")
 	public ResponseEntity<List<Category>> getAllCategory() {
 		List<Category> categoryEntity = catServ.getAllCategoryEntity();
-		return new ResponseEntity<List<Category>>(categoryEntity, HttpStatus.OK);
+		return new ResponseEntity<>(categoryEntity, HttpStatus.OK);
 
 	}
 
 	@GetMapping("/getCategory/{id}")
 	public ResponseEntity<Optional<Category>> getCategoryId(@PathVariable long id) {
 		Optional<Category> cat = catServ.getCategoryById(id);
-		return new ResponseEntity(cat, HttpStatus.OK);
+		return new ResponseEntity<>(cat, HttpStatus.OK);
 	}
 
 	@DeleteMapping("/deleteCategory/{id}")

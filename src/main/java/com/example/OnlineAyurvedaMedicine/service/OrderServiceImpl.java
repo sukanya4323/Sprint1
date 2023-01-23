@@ -15,8 +15,7 @@ public class OrderServiceImpl implements OrderService {
 	
 	@Override
 	public Order saveOrder(Order od)  {
-		Order savedOd=odRepo.save(od);
-	     return savedOd;
+		return odRepo.save(od);
 	}
 
 	@Override
@@ -26,13 +25,11 @@ public class OrderServiceImpl implements OrderService {
 	 }
 	@Override
 	 public Optional<Order> getOrderById(long orderId){
-		 Optional<Order> od=odRepo.findByOrderId(orderId);
-		 return od;
+		 return odRepo.findByOrderId(orderId);
 	 }
 	@Override
 	 public Order updateOrder(Order od) {
-		Order upOd=odRepo.save(od);
-		 return upOd;
+		return odRepo.save(od);
 	 }
 	 @Override
 	 public String deleteOrderById(long orderId) {

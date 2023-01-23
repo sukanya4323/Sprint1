@@ -2,9 +2,6 @@ package com.example.OnlineAyurvedaMedicine.service;
 
 import java.util.List;
 import java.util.Optional;
-
-import org.springframework.stereotype.Service;
-
 import com.example.OnlineAyurvedaMedicine.entity.Category;
 
 public interface CategoryService {

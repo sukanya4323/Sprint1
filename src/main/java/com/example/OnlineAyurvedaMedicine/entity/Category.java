@@ -1,6 +1,5 @@
 package com.example.OnlineAyurvedaMedicine.entity;
 
-import java.util.List;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,7 +23,7 @@ public class Category {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="Category_ID")
 	private long categoryId;
-	@Column(nullable=false, length=8)
+	@Column(nullable=false, length=15)
 	private String categoryName;
 
 }

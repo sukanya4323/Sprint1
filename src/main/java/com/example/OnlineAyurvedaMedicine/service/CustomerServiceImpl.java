@@ -15,26 +15,27 @@ import com.example.OnlineAyurvedaMedicine.repository.CustomerRepository;
 public class CustomerServiceImpl implements CustomerService{
 	@Autowired
 	private CustomerRepository custRepo;
+	public CustomerServiceImpl(CustomerRepository customerRepo) {
+		this.custRepo = customerRepo;
+
+	}
 	@Override
 	public Customer saveCustomer(Customer cust) throws CustomerAlreadyExistsException {
 		if(custRepo.existsByCustomerName(cust.getCustomerName()))
 			throw new CustomerAlreadyExistsException();
 		
-		Customer savedCust=custRepo.save(cust);
-		return savedCust;
+		return custRepo.save(cust);
 		
 	}
 	
 	@Override
 	public List<Customer> getAllCustomers(){
-		List<Customer>customers=custRepo.findAll();
-		return customers;
+		return custRepo.findAll();
 	}
 	
 	@Override
 	public Optional<Customer> getCustomerByCustomerId(long customerId) {
-		Optional<Customer>cust=custRepo.findByCustomerId(customerId);
-		return cust;
+		return custRepo.findByCustomerId(customerId);
 	}
 	
 	@Override
@@ -49,8 +50,7 @@ public class CustomerServiceImpl implements CustomerService{
 	
 	@Override
 	public Customer updateCustomer(Customer cust) {
-		Customer upcust=custRepo.save(cust);
-		return upcust;
+		return custRepo.save(cust);
 	}
 
 	@Override

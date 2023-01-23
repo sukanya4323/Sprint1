@@ -17,31 +17,32 @@ public class UserServiceImpl implements UserService{
 
 	@Autowired
 	private UserRepository userRepo;
+	
+	public UserServiceImpl(UserRepository userRepo) {
+		this.userRepo = userRepo;
+		
+	}
 
 	@Override
 	public User saveUser(User user) throws UserAlreadyExistsException {
 		if (userRepo.existsByUserName(user.getUserName()))
 			throw new UserAlreadyExistsException();
-		User savedUser = userRepo.save(user);
-		return savedUser;
+		return userRepo.save(user);
 	}
 
 	@Override
 	public List<User> getAllUsers() {
-		List<User> user = userRepo.findAll();
-		return user;
+		return userRepo.findAll();
 	}
 	
 	@Override
 	public Optional<User> getUserById(long userId) {
-		Optional<User> user = userRepo.findById(userId);
-		return user;
+		return userRepo.findById(userId);
 	}
 	
 	@Override
 	public User updateUser(User user) {
-		User upuser = userRepo.save(user);
-		return upuser;
+		return userRepo.save(user);
 	}
 	
 	@Override

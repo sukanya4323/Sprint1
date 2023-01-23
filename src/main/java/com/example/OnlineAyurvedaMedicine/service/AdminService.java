@@ -2,7 +2,6 @@ package com.example.OnlineAyurvedaMedicine.service;
 
 import java.util.List;
 import com.example.OnlineAyurvedaMedicine.entity.Admin;
-import com.example.OnlineAyurvedaMedicine.entity.Category;
 
 public interface AdminService {
 	

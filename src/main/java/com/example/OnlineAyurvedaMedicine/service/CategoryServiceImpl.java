@@ -19,20 +19,17 @@ public class CategoryServiceImpl implements CategoryService {
 	@Override
 	public Category saveCategoryEntity(Category cat) {
 
-		Category savedCat = catRepo.save(cat);
-		return savedCat;
+		return catRepo.save(cat);
 	}
 
 	@Override
 	public List<Category> getAllCategoryEntity() {
-		List<Category> category = catRepo.findAll();
-		return category;
+		return catRepo.findAll();
 	}
 
 	@Override
 	public Optional<Category> getCategoryById(long id) {
-		Optional<Category> category = catRepo.findByCategoryId(id);
-		return category;
+		return catRepo.findByCategoryId(id);
 	}
 
 	@Override
@@ -48,8 +45,7 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Override
 	public Category updateCategory(Category cat) {
-		Category upCat = catRepo.save(cat);
-		return upCat;
+		return catRepo.save(cat);
 	}
 
 }
