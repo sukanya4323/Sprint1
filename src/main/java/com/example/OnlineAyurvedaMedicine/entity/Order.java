@@ -30,7 +30,7 @@ public class Order {
 	private LocalDate orderDate ;
 	@NotNull
 	private LocalDate dispatchDate;
-	private String orderAddress;
+	private String ordersAddress;
 	@NotNull
 	private double totalPrice;
 	public void setTotalPrice(int totalPrice) throws PriceException{

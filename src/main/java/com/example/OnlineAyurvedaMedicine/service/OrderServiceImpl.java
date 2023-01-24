@@ -40,11 +40,13 @@ public class OrderServiceImpl implements OrderService {
 	 public String deleteOrderById(long orderId) {
 		 Optional<Order> od=odRepo.findByOrderId(orderId);
 		 if(od.isPresent()) {
-			 odRepo.deleteByOrderId(orderId);
+			 odRepo.deleteById(orderId);
 			 return "deleted successfully";
 		 }
 		 return "id doesnot exist";
 	 }
+
+	
 	
 
 }

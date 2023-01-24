@@ -34,7 +34,7 @@ public class MedicineController {
 	@PostMapping("/saveMedicine")
 	public ResponseEntity<Medicine>saveMedicine(@RequestBody Medicine med) {
 		Medicine savedMed=medServ.saveMedicine(med);
-		return new ResponseEntity<Medicine>(savedMed, HttpStatus.CREATED);
+		return new ResponseEntity<>(savedMed, HttpStatus.CREATED);
 	}
 	
 	/**
@@ -44,7 +44,7 @@ public class MedicineController {
 	@GetMapping("/allMedicines")
 	public ResponseEntity<List<Medicine>> getAllMedicines() {
 		List<Medicine> medicines = medServ.getAllMedicines();
-		return new ResponseEntity<List<Medicine>>(medicines,HttpStatus.OK);
+		return new ResponseEntity<>(medicines,HttpStatus.OK);
 	}
 	
 	/**
@@ -66,7 +66,7 @@ public class MedicineController {
 	@DeleteMapping("/delMedicine/{id}")
 	public ResponseEntity<String> deleteMedicineById(@PathVariable long id) {
 		String med = medServ.deleteMedicineById(id);
-		return new ResponseEntity<String>(med,HttpStatus.OK);
+		return new ResponseEntity<>(med,HttpStatus.OK);
 		}
 	
 	/**

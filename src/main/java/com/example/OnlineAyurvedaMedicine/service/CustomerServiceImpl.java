@@ -65,7 +65,6 @@ public class CustomerServiceImpl implements CustomerService{
 
 	@Override
 	public Customer saveCustomerEntity(Customer cust) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

@@ -29,7 +29,7 @@ public class CustomerController {
 	@PostMapping("/saveCustomer")
 	public ResponseEntity<Customer> saveCustomer(@RequestBody Customer cust) throws CustomerAlreadyExistsException{
 		Customer savedCust = custServ.saveCustomer(cust);
-		return new ResponseEntity<Customer>(savedCust, HttpStatus.CREATED);
+		return new ResponseEntity<>(savedCust, HttpStatus.CREATED);
 	}
 	
 	/**
@@ -39,7 +39,7 @@ public class CustomerController {
 	@GetMapping("/allCustomers")
 	public ResponseEntity<List<Customer>> getAllCustomers() {
 		List<Customer> customers = custServ.getAllCustomers();
-		return new ResponseEntity<List<Customer>>(customers, HttpStatus.OK);
+		return new ResponseEntity<>(customers, HttpStatus.OK);
 	}
 	
 	/**

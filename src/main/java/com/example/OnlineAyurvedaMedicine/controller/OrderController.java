@@ -34,7 +34,7 @@ public class OrderController {
 	@PostMapping("/saveOrder")
 	public ResponseEntity<Order>saveOrder(@RequestBody Order od) {
 		Order savedOd=odServ.saveOrder(od);
-		return new ResponseEntity<Order>(savedOd, HttpStatus.CREATED);
+		return new ResponseEntity<>(savedOd, HttpStatus.CREATED);
 	}
 	
 	/**
@@ -44,7 +44,7 @@ public class OrderController {
 	@GetMapping("/allOrders")
 	public ResponseEntity<List<Order>> getAllOrders(){
 		List<Order> order=odServ.getAllOrders();
-		return new ResponseEntity<List<Order>>(order, HttpStatus.OK);
+		return new ResponseEntity<>(order, HttpStatus.OK);
 	}
 	
 	/**
@@ -75,9 +75,9 @@ public class OrderController {
 	 * @return
 	 */
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<String> deleteOdById(@PathVariable long id){
+	public ResponseEntity<String> deleteOrderdById(@PathVariable long id){
 	String msg=odServ.deleteOrderById(id);
-	return new ResponseEntity<String>(msg, HttpStatus.OK);
+	return new ResponseEntity<>(msg, HttpStatus.OK);
 	}
 	
 

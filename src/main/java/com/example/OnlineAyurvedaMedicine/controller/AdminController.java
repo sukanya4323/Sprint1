@@ -40,7 +40,7 @@ public class AdminController {
 	@PostMapping("/loginAdmin")
 	public ResponseEntity<Admin> saveAdmin(@RequestBody Admin ad) {
 		Admin savedAd = adServ.saveAdmin(ad);
-		return new ResponseEntity<Admin>(savedAd, HttpStatus.CREATED);
+		return new ResponseEntity<>(savedAd, HttpStatus.CREATED);
 
 	}
 }

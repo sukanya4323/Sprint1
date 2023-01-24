@@ -15,33 +15,36 @@ public class GlobalExceptionHandler {
 	
 	/**
 	 * 
-	 * @param user1
+	 * @param user1 
 	 * @return
+	 * @throws Price Exception in Order class
 	 */
 	@ExceptionHandler(value=PriceException.class)
 	public ResponseEntity<String> priceException(PriceException user1){
-		return new ResponseEntity<String>("Shipping charge of 70/- will be charged. Add more items to make a total of 500/-.", HttpStatus.CONFLICT);
+		return new ResponseEntity<>("Shipping charge of 70/- will be charged. Add more items to make a total of 500/-.", HttpStatus.CONFLICT);
 	}
 	
 	/**
 	 * 
-	 * @param user
+	 * @param user 
+	 * @throws Existing Customer Exception in Customer class
 	 * @return
 	 */
 	@ExceptionHandler(value = CustomerAlreadyExistsException.class)
 	public ResponseEntity<String> customerAlreadyExistsException(CustomerAlreadyExistsException user){
-		return new ResponseEntity<String>("customer already exists in db. Please- try again", HttpStatus.CONFLICT);
+		return new ResponseEntity<>("customer already exists in db. Please- try again", HttpStatus.CONFLICT);
 				
 	}
 	
 	/**
 	 * 
 	 * @param user
+	 * @throws Existing User Exception in User class
 	 * @return
 	 */
 	@ExceptionHandler(value = UserAlreadyExistsException.class)
 	public ResponseEntity<String> UserAlreadyExistsException (UserAlreadyExistsException user){
-		return new ResponseEntity<String>("User already exists in database. please try again", HttpStatus.CONFLICT);
+		return new ResponseEntity<>("User already exists in database. please try again", HttpStatus.CONFLICT);
 	}
 
 }
